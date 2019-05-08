@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import Join from "./Join";
 import Chat from "./Chat";
+import Layout from "./styled/Layout";
 
 class App extends Component {
   // initialize state
@@ -70,17 +71,21 @@ class App extends Component {
   };
 
   render() {
-    if (!this.state.messages) return <p>Loading...</p>;
-    else if (!this.state.author) return <Join joinChat={this.joinChat} />;
-    else
-      return (
-        <Chat
-          author={this.state.author}
-          messages={this.state.messages}
-          postMessage={this.postMessage}
-          leaveChat={this.leaveChat}
-        />
-      );
+    return (
+      <Layout>
+        {!this.state.messages && <p>Loading...</p>}
+        {this.state.author ? (
+          <Chat
+            author={this.state.author}
+            messages={this.state.messages}
+            postMessage={this.postMessage}
+            leaveChat={this.leaveChat}
+          />
+        ) : (
+          <Join joinChat={this.joinChat} />
+        )}
+      </Layout>
+    );
   }
 }
 
