@@ -20,9 +20,13 @@ class App extends Component {
       });
   }
 
+  joinChat = author => {
+    this.setState({ author });
+  };
+
   render() {
     if (!this.state.messages) return <p>Loading...</p>;
-    else if (!this.state.author) return <Join />;
+    else if (!this.state.author) return <Join joinChat={this.joinChat} />;
     else return <div>Welcome {this.state.author}!</div>;
   }
 }
