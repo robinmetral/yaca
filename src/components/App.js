@@ -29,9 +29,12 @@ class App extends Component {
       }`
     );
     const json = await response.json();
+    console.log(json);
+    /* awaiting token
     this.setState({
       messages: json
     });
+    */
   };
 
   // hit API to post message
@@ -74,6 +77,7 @@ class App extends Component {
         <Chat
           author={this.state.author}
           messages={this.state.messages}
+          postMessage={this.postMessage}
           leaveChat={this.leaveChat}
         />
       );
