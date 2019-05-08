@@ -20,8 +20,11 @@ class App extends Component {
       });
   }
 
-  joinChat = author => {
+  joinChat = (author, remember) => {
     this.setState({ author });
+    if (remember) {
+      localStorage.setItem("author", author);
+    }
   };
 
   render() {
