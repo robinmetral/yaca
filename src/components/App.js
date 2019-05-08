@@ -24,7 +24,9 @@ class App extends Component {
     console.log("Fetching messages...");
     // fetch messages
     const response = await fetch(
-      `https://chatty.kubernetes.doodle-test.com/api/chatty/v1.0/?token=`
+      `https://chatty.kubernetes.doodle-test.com/api/chatty/v1.0/?token=${
+        process.env.REACT_APP_API_TOKEN
+      }`
     );
     const json = await response.json();
     this.setState({
@@ -39,7 +41,7 @@ class App extends Component {
       {
         method: "POST",
         headers: {
-          token: token
+          token: process.env.REACT_APP_API_TOKEN
         },
         body: JSON.stringify(message)
       }
