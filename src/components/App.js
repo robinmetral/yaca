@@ -20,18 +20,32 @@ class App extends Component {
   }
 
   // hit API to fetch messages
-  fetchMessages = () => {
+  fetchMessages = async () => {
     console.log("Fetching messages...");
     // fetch messages
-    fetch(`https://chatty.kubernetes.doodle-test.com/api/chatty/v1.0/?token=`)
-      .then(response => {
-        return response.json();
-      })
-      .then(json => {
-        this.setState({
-          messages: json
-        });
-      });
+    const response = await fetch(
+      `https://chatty.kubernetes.doodle-test.com/api/chatty/v1.0/?token=`
+    );
+    const json = await response.json();
+    this.setState({
+      messages: json
+    });
+  };
+
+  // hit API to post message
+  postMessage = async message => {
+    const response = await fetch(
+      `https://chatty.kubernetes.doodle-test.com/api/chatty/v1.0`,
+      {
+        method: "POST",
+        headers: {
+          token: token
+        },
+        body: JSON.stringify(message)
+      }
+    );
+    const json = await response.json();
+    console.log(json);
   };
 
   // join the chat by adding author to state
