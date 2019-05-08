@@ -20,7 +20,7 @@ class App extends Component {
     }
     // get theme from localStorage
     const dark = localStorage.getItem("dark");
-    if (author) {
+    if (dark) {
       this.setState({ dark });
     }
     // fetch messages
@@ -74,11 +74,12 @@ class App extends Component {
   leaveChat = () => {
     this.setState({ author: undefined });
     // clear localStorage
-    localStorage.clear();
+    localStorage.removeItem("author");
   };
 
-  // toggle dark light theme
+  // toggle dark light theme and save to localStorage
   toggleDark = () => {
+    localStorage.setItem("dark", !this.state.dark);
     this.setState({
       dark: !this.state.dark
     });
