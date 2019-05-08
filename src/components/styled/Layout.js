@@ -17,7 +17,15 @@ class Layout extends Component {
       <ThemeProvider theme={this.props.dark ? darkTheme : lightTheme}>
         <>
           <GlobalStyle />
+          <header>
+            <h1>Doodle Chat</h1>
+          </header>
           <Main>{this.props.children}</Main>
+          <footer>
+            <button onClick={this.props.toggleDark}>
+              {this.props.dark ? `Light` : `Dark`}
+            </button>
+          </footer>
         </>
       </ThemeProvider>
     );

@@ -8,13 +8,20 @@ class App extends Component {
   // initialize state
   state = {
     author: undefined,
-    messages: {}
+    messages: {},
+    dark: true
   };
 
   componentDidMount() {
     // get returning author from localStorage
-    if (localStorage.getItem("author")) {
-      this.setState({ author: localStorage.getItem("author") });
+    const author = localStorage.getItem("author");
+    if (author) {
+      this.setState({ author });
+    }
+    // get theme from localStorage
+    const dark = localStorage.getItem("dark");
+    if (author) {
+      this.setState({ dark });
     }
     // fetch messages
     this.fetchMessages();
@@ -70,9 +77,16 @@ class App extends Component {
     localStorage.clear();
   };
 
+  // toggle dark light theme
+  toggleDark = () => {
+    this.setState({
+      dark: !this.state.dark
+    });
+  };
+
   render() {
     return (
-      <Layout>
+      <Layout dark={this.state.dark} toggleDark={this.toggleDark}>
         {!this.state.messages && <p>Loading...</p>}
         {this.state.author ? (
           <Chat
