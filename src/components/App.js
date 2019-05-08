@@ -20,8 +20,9 @@ class App extends Component {
     }
     // get theme from localStorage
     const dark = localStorage.getItem("dark");
-    if (dark) {
-      this.setState({ dark });
+    if (dark === "false") {
+      // dark value in localStorage is a string
+      this.setState({ dark: false });
     }
     // fetch messages
     this.fetchMessages();
@@ -80,9 +81,7 @@ class App extends Component {
   // toggle dark light theme and save to localStorage
   toggleDark = () => {
     localStorage.setItem("dark", !this.state.dark);
-    this.setState({
-      dark: !this.state.dark
-    });
+    this.setState({ dark: !this.state.dark });
   };
 
   render() {
