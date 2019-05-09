@@ -6,6 +6,8 @@ import GlobalStyle from "./GlobalStyle";
 import { lightTheme, darkTheme } from "./Themes";
 
 const Container = styled.div`
+  display: flex;
+  flex-direction: column;
   max-width: 800px;
   margin: 0 auto;
 `;
@@ -17,7 +19,7 @@ class Layout extends Component {
         <Container>
           <GlobalStyle />
           <Header dark={this.props.dark} toggleDark={this.props.toggleDark} />
-          <main>{this.props.children}</main>
+          {this.props.children}
         </Container>
       </ThemeProvider>
     );

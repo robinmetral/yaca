@@ -1,20 +1,13 @@
-import React, { Component } from "react";
+import React from "react";
+import styled from "styled-components";
 
-import PostMessage from "./PostMessage";
+const StyledChat = styled.section`
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+  background: ${({ theme }) => theme.bg};
+`;
 
-class Chat extends Component {
-  render() {
-    return (
-      <div>
-        <p>Hey {this.props.author}!</p>
-        <PostMessage
-          author={this.props.author}
-          postMessage={this.props.postMessage}
-        />
-        <button onClick={this.props.leaveChat}>Leave the chat</button>
-      </div>
-    );
-  }
-}
+const Chat = ({ children }) => <StyledChat>{children}</StyledChat>;
 
 export default Chat;

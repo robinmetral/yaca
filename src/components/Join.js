@@ -24,8 +24,7 @@ class Join extends Component {
 
   render() {
     return (
-      <div>
-        <p>What should we call you?</p>
+      <>
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="author">Username</label>
           <input
@@ -46,7 +45,7 @@ class Join extends Component {
           />
           <input type="submit" value="Join!" />
         </form>
-      </div>
+      </>
     );
   }
 }

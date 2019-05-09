@@ -4,6 +4,7 @@ import Join from "./Join";
 import Chat from "./Chat";
 import Layout from "./Layout";
 import Message from "./Message";
+import PostMessage from "./PostMessage";
 
 class App extends Component {
   // initialize state
@@ -106,23 +107,28 @@ class App extends Component {
   render() {
     return (
       <Layout dark={this.state.dark} toggleDark={this.toggleDark}>
-        {this.state.messages ? (
-          this.state.messages.map(message => (
-            <Message message={message} author={this.state.author} />
-          ))
-        ) : (
-          <p>Loading...</p>
-        )}
-        {this.state.author ? (
-          <Chat
-            author={this.state.author}
-            messages={this.state.messages}
-            postMessage={this.postMessage}
-            leaveChat={this.leaveChat}
-          />
-        ) : (
-          <Join joinChat={this.joinChat} />
-        )}
+        <main>
+          {this.state.messages ? (
+            this.state.messages.map(message => (
+              <Message message={message} author={this.state.author} />
+            ))
+          ) : (
+            <p>Loading...</p>
+          )}
+        </main>
+        <Chat>
+          {this.state.author ? (
+            <>
+              <PostMessage
+                author={this.state.author}
+                postMessage={this.postMessage}
+              />
+              <button onClick={this.leaveChat}>Leave the chat</button>
+            </>
+          ) : (
+            <Join joinChat={this.joinChat} />
+          )}
+        </Chat>
       </Layout>
     );
   }
