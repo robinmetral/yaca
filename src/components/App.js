@@ -2,13 +2,14 @@ import React, { Component } from "react";
 
 import Join from "./Join";
 import Chat from "./Chat";
-import Layout from "./styled/Layout";
+import Layout from "./Layout";
+import Message from "./Message";
 
 class App extends Component {
   // initialize state
   state = {
     author: undefined,
-    messages: {},
+    messages: [],
     dark: true
   };
 
@@ -30,7 +31,19 @@ class App extends Component {
 
   // hit API to fetch messages
   fetchMessages = async () => {
-    console.log("Fetching messages...");
+    // DEV MESSAGES
+    const messages = [];
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map(i =>
+      messages.push({
+        author: `Author${i}`,
+        message: `A little message by Author${i}`
+      })
+    );
+    console.log(messages);
+    this.setState({ messages });
+    // END
+
+    /* AWAITING TOKEN
     // fetch messages
     const response = await fetch(
       `https://chatty.kubernetes.doodle-test.com/api/chatty/v1.0/?token=${
@@ -38,8 +51,6 @@ class App extends Component {
       }`
     );
     const json = await response.json();
-    console.log(json);
-    /* awaiting token
     this.setState({
       messages: json
     });
@@ -48,6 +59,7 @@ class App extends Component {
 
   // hit API to post message
   postMessage = async message => {
+    // hit api
     const response = await fetch(
       `https://chatty.kubernetes.doodle-test.com/api/chatty/v1.0`,
       {
@@ -60,6 +72,13 @@ class App extends Component {
     );
     const json = await response.json();
     console.log(json);
+    // mirror to state
+    // take a copy of state
+    let messages = this.state.messages;
+    // add message
+    messages.push(message);
+    // update state
+    this.setState({ messages });
   };
 
   // join the chat by adding author to state
@@ -87,7 +106,13 @@ class App extends Component {
   render() {
     return (
       <Layout dark={this.state.dark} toggleDark={this.toggleDark}>
-        {!this.state.messages && <p>Loading...</p>}
+        {this.state.messages ? (
+          this.state.messages.map(message => (
+            <Message message={message} author={this.state.author} />
+          ))
+        ) : (
+          <p>Loading...</p>
+        )}
         {this.state.author ? (
           <Chat
             author={this.state.author}
