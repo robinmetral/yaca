@@ -1,32 +1,24 @@
 import React, { Component } from "react";
 import styled, { ThemeProvider } from "styled-components";
 
+import Header from "./Header";
 import GlobalStyle from "./GlobalStyle";
 import { lightTheme, darkTheme } from "./Themes";
 
-const Main = styled.main`
+const Container = styled.div`
   max-width: 800px;
   margin: 0 auto;
-  padding: 2rem;
-  background: ${({ theme }) => theme.box};
 `;
 
 class Layout extends Component {
   render() {
     return (
       <ThemeProvider theme={this.props.dark ? darkTheme : lightTheme}>
-        <>
+        <Container>
           <GlobalStyle />
-          <header>
-            <h1>Doodle Chat</h1>
-          </header>
-          <Main>{this.props.children}</Main>
-          <footer>
-            <button onClick={this.props.toggleDark}>
-              {this.props.dark ? `Light` : `Dark`}
-            </button>
-          </footer>
-        </>
+          <Header dark={this.props.dark} toggleDark={this.props.toggleDark} />
+          <main>{this.props.children}</main>
+        </Container>
       </ThemeProvider>
     );
   }

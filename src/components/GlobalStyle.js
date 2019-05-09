@@ -1,14 +1,11 @@
 import { createGlobalStyle } from "styled-components";
+import PublicSans from "../assets/PublicSans-Roman-VF.ttf";
 
 const GlobalStyle = createGlobalStyle`
-  /*
   @font-face {
-    font-family: "Font name";
-    src: url("/path/to/font.woff2") format("woff2");
-    font-weight: normal;
-    font-style: normal;
+    font-family: "Public Sans";
+    src: url(${PublicSans}) format("truetype");
   }
-  */
   html {
     box-sizing: border-box;
     font-size: 10px;
@@ -21,9 +18,10 @@ const GlobalStyle = createGlobalStyle`
   body {
     padding: 0;
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
+    font-variation-settings: 'wght' 350;
     line-height: 2;
-    /*font-family: "Font name";*/
+    font-family: "Public Sans", Helvetica, Arial, sans-serif;
     background: ${({ theme }) => theme.bg};
     color: ${({ theme }) => theme.text};
   }
