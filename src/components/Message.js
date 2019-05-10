@@ -9,14 +9,18 @@ const Container = styled.div`
 const Box = styled.div`
   background: ${({ theme }) => theme.box};
   max-width: 40rem;
-  padding: 0.5rem 1rem;
+  padding: 1rem 2rem;
   margin-left: ${({ own }) => (own ? "auto" : "0")};
+  border-radius: ${({ theme }) => theme.borderradius};
+  border: ${({ theme }) => theme.border}
   display: flex;
   flex-direction: column;
 `;
 
 const Author = styled.span`
-  font-weight: 600;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: ${({ theme }) => theme.accent};
 `;
 
 const Body = styled.div`
@@ -24,15 +28,17 @@ const Body = styled.div`
   justify-content: space-between;
 `;
 
-const Time = styled.small`
+const Time = styled.span`
   margin-left: 2rem;
   align-self: flex-end;
+  font-size: 1.2rem;
+  color: ${({ theme }) => theme.lighttext};
 `;
 
 const Message = ({ message, author }) => (
   <Container>
     <Box own={message.author === author ? true : false}>
-      <Author>{message.author}</Author>
+      {message.author !== author && <Author>{message.author}</Author>}
       <Body>
         {message.message}
         <Time>{message.timestamp}</Time>

@@ -28,7 +28,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
     font-size: 1.6rem;
-    line-height: 1.2;
+    line-height: 1.4;
     font-family: "Roboto", Arial, Helvetica sans-serif;
     background: ${({ theme }) => theme.bg};
     color: ${({ theme }) => theme.text};
