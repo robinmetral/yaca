@@ -14,6 +14,9 @@ class App extends Component {
     dark: true
   };
 
+  // ref at the bottom of messages to scroll
+  messagesEnd = React.createRef();
+
   componentDidMount() {
     // get returning author from localStorage
     const author = localStorage.getItem("author");
@@ -28,7 +31,19 @@ class App extends Component {
     }
     // fetch messages
     this.fetchMessages();
+    // scroll to the bottom
+    this.scrollToBottom();
   }
+
+  componentDidUpdate() {
+    // scroll to the bottom
+    this.scrollToBottom();
+  }
+
+  // method to scroll to the bottom of messages
+  scrollToBottom = () => {
+    this.messagesEnd.current.scrollIntoView({ behavior: "smooth" });
+  };
 
   // hit API to fetch messages
   fetchMessages = async () => {
@@ -109,9 +124,16 @@ class App extends Component {
       <Layout dark={this.state.dark} toggleDark={this.toggleDark}>
         <main>
           {this.state.messages ? (
-            this.state.messages.map(message => (
-              <Message message={message} author={this.state.author} />
-            ))
+            <>
+              {this.state.messages.map((message, key) => (
+                <Message
+                  key={key}
+                  message={message}
+                  author={this.state.author}
+                />
+              ))}
+              <div ref={this.messagesEnd} />
+            </>
           ) : (
             <p>Loading...</p>
           )}
