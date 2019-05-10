@@ -5,7 +5,7 @@ import Join from "./Join";
 import { Bar } from "./Bar";
 
 const ChatBox = ({ author, postMessage, leaveChat, joinChat }) => (
-  <Bar as="section" bottom>
+  <Bar as="section" bottom height="15rem">
     {author ? (
       <>
         <PostMessage author={author} postMessage={postMessage} />

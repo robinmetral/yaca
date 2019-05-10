@@ -24,7 +24,7 @@ const Icon = styled.div`
 `;
 
 const Header = ({ dark, toggleDark }) => (
-  <Bar as="header" top>
+  <Bar as="header" top height="5rem">
     <Title>Doodle Chat</Title>
     <Icon as={dark ? Sun : Moon} onClick={toggleDark} />
   </Bar>

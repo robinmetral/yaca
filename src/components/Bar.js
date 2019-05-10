@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Bar = styled.div`
   position: sticky;
-  height: 5rem;
+  height: ${({ height }) => height};
   top: ${({ top }) => (top ? "0" : "")};
   bottom: ${({ bottom }) => (bottom ? "0" : "")};
   z-index: 10;
