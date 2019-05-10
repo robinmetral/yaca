@@ -88,6 +88,8 @@ class App extends Component {
     const json = await response.json();
     console.log(json);
     */
+    // temporarily manually add timestamp to message
+    message.timestamp = Date.now();
     // mirror to state
     // take a copy of state
     let messages = this.state.messages;
