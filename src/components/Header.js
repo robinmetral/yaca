@@ -6,6 +6,7 @@ import { ReactComponent as Moon } from "../assets/moon.svg";
 
 const StyledHeader = styled.header`
   position: sticky;
+  height: 5rem;
   top: 0;
   z-index: 10;
   background: ${({ theme }) => theme.bg};
@@ -13,10 +14,16 @@ const StyledHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 0 2rem;
+  border-bottom: 1px solid ${({ theme }) => theme.medium};
+`;
+
+const Title = styled.h1`
+  font-size: 2.5rem;
+  margin: 0;
 `;
 
 const Icon = styled.div`
-  height: 3rem;
+  height: 2.5rem;
   &:hover {
     transform: translateY(-1px);
   }
@@ -30,7 +37,7 @@ const Icon = styled.div`
 
 const Header = ({ dark, toggleDark }) => (
   <StyledHeader>
-    <h1>Doodle Chat</h1>
+    <Title>Doodle Chat</Title>
     <Icon as={dark ? Sun : Moon} onClick={toggleDark} />
   </StyledHeader>
 );
