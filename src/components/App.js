@@ -50,7 +50,8 @@ class App extends Component {
     [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map(i =>
       messages.push({
         author: `Author${i}`,
-        message: `A little message by Author${i}`
+        message: `A little message by Author${i}`,
+        timestamp: Date.now()
       })
     );
     this.setState({ messages });
