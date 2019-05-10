@@ -51,7 +51,11 @@ class App extends Component {
       messages.push({
         author: `Author${i}`,
         message: `A little message by Author${i}`,
-        timestamp: Date.now()
+        timestamp: new Date(
+          new Date(2019, 4, 3).getTime() +
+            Math.random() *
+              (new Date().getTime() - new Date(2019, 4, 3).getTime())
+        )
       })
     );
     this.setState({ messages });
