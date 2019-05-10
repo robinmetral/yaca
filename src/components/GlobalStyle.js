@@ -1,10 +1,19 @@
 import { createGlobalStyle } from "styled-components";
-import PublicSans from "../assets/PublicSans-Roman-VF.ttf";
+import RobotoLight from "../assets/Roboto-Light.woff2";
+import RobotoMedium from "../assets/Roboto-Medium.woff2";
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
-    font-family: "Public Sans";
-    src: url(${PublicSans}) format("truetype");
+    font-family: "Roboto";
+    src: url(${RobotoLight}) format("woff2");
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "Roboto";
+    src: url(${RobotoMedium}) format("woff2");
+    font-weight: bold;
+    font-style: normal;
   }
   html {
     box-sizing: border-box;
@@ -19,9 +28,8 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
     font-size: 1.6rem;
-    font-variation-settings: 'wght' 350;
     line-height: 1.2;
-    font-family: "Public Sans", Helvetica, Arial, sans-serif;
+    font-family: "Roboto", Arial, Helvetica sans-serif;
     background: ${({ theme }) => theme.bg};
     color: ${({ theme }) => theme.text};
   }
