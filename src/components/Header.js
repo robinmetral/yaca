@@ -3,19 +3,7 @@ import styled from "styled-components";
 
 import { ReactComponent as Sun } from "../assets/sun.svg";
 import { ReactComponent as Moon } from "../assets/moon.svg";
-
-const StyledHeader = styled.header`
-  position: sticky;
-  height: 5rem;
-  top: 0;
-  z-index: 10;
-  background: ${({ theme }) => theme.bg};
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 2rem;
-  border-bottom: 1px solid ${({ theme }) => theme.medium};
-`;
+import { Bar } from "./Bar";
 
 const Title = styled.h1`
   font-size: 2.5rem;
@@ -36,10 +24,10 @@ const Icon = styled.div`
 `;
 
 const Header = ({ dark, toggleDark }) => (
-  <StyledHeader>
+  <Bar as="header" top>
     <Title>Doodle Chat</Title>
     <Icon as={dark ? Sun : Moon} onClick={toggleDark} />
-  </StyledHeader>
+  </Bar>
 );
 
 export default Header;

@@ -1,23 +1,11 @@
 import React from "react";
-import styled from "styled-components";
 
 import PostMessage from "./PostMessage";
 import Join from "./Join";
-
-const StyledChat = styled.section`
-  position: sticky;
-  height: 5rem;
-  bottom: 0;
-  z-index: 10;
-  background: ${({ theme }) => theme.bg};
-  display: flex;
-  align-items: center;
-  padding: 0 2rem;
-  border-top: 1px solid ${({ theme }) => theme.medium};
-`;
+import { Bar } from "./Bar";
 
 const ChatBox = ({ author, postMessage, leaveChat, joinChat }) => (
-  <StyledChat>
+  <Bar as="section" bottom>
     {author ? (
       <>
         <PostMessage author={author} postMessage={postMessage} />
@@ -26,7 +14,7 @@ const ChatBox = ({ author, postMessage, leaveChat, joinChat }) => (
     ) : (
       <Join joinChat={joinChat} />
     )}
-  </StyledChat>
+  </Bar>
 );
 
 export default ChatBox;
