@@ -6,9 +6,14 @@ import Join from "./Join";
 
 const StyledChat = styled.section`
   position: sticky;
+  height: 5rem;
   bottom: 0;
   z-index: 10;
   background: ${({ theme }) => theme.bg};
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  border-top: 1px solid ${({ theme }) => theme.medium};
 `;
 
 const ChatBox = ({ author, postMessage, leaveChat, joinChat }) => (
