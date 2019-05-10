@@ -20,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     font-size: 1.6rem;
     font-variation-settings: 'wght' 350;
-    line-height: 2;
+    line-height: 1.2;
     font-family: "Public Sans", Helvetica, Arial, sans-serif;
     background: ${({ theme }) => theme.bg};
     color: ${({ theme }) => theme.text};
