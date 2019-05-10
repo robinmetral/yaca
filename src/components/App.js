@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import ChatBox from "./Chat";
+import ChatBox from "./ChatBox";
 import Layout from "./Layout";
 import Message from "./Message";
 

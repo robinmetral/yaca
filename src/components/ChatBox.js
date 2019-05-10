@@ -11,7 +11,7 @@ const StyledChat = styled.section`
   background: ${({ theme }) => theme.bg};
 `;
 
-const Chat = ({ author, postMessage, leaveChat, joinChat }) => (
+const ChatBox = ({ author, postMessage, leaveChat, joinChat }) => (
   <StyledChat>
     {author ? (
       <>
@@ -24,4 +24,4 @@ const Chat = ({ author, postMessage, leaveChat, joinChat }) => (
   </StyledChat>
 );
 
-export default Chat;
+export default ChatBox;
