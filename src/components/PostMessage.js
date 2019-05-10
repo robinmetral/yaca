@@ -13,24 +13,30 @@ class PostMessage extends Component {
   };
 
   handleSubmit = event => {
+    // prevent form from submitting
     event.preventDefault();
+    // build message object
     const message = {
       message: this.state.message,
       author: this.props.author
     };
+    // call function to send message
     this.props.postMessage(message);
+    // reset form
+    this.setState({
+      message: ""
+    });
   };
 
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label htmlFor="message">Message</label>
         <input
           required
           type="text"
-          id="message"
           value={this.state.message}
           onChange={this.handleChange}
+          placeholder="Write your message..."
         />
         <input type="submit" label="Send!" />
       </form>

@@ -53,7 +53,6 @@ class App extends Component {
         message: `A little message by Author${i}`
       })
     );
-    console.log(messages);
     this.setState({ messages });
     // END
 
@@ -74,6 +73,7 @@ class App extends Component {
   // hit API to post message
   postMessage = async message => {
     // hit api
+    /* awaiting token
     const response = await fetch(
       `https://chatty.kubernetes.doodle-test.com/api/chatty/v1.0`,
       {
@@ -86,6 +86,7 @@ class App extends Component {
     );
     const json = await response.json();
     console.log(json);
+    */
     // mirror to state
     // take a copy of state
     let messages = this.state.messages;
