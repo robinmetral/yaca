@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 
-import Join from "./Join";
-import Chat from "./Chat";
+import ChatBox from "./Chat";
 import Layout from "./Layout";
 import Message from "./Message";
-import PostMessage from "./PostMessage";
 
 class App extends Component {
   // initialize state
@@ -138,19 +136,12 @@ class App extends Component {
             <p>Loading...</p>
           )}
         </main>
-        <Chat>
-          {this.state.author ? (
-            <>
-              <PostMessage
-                author={this.state.author}
-                postMessage={this.postMessage}
-              />
-              <button onClick={this.leaveChat}>Leave the chat</button>
-            </>
-          ) : (
-            <Join joinChat={this.joinChat} />
-          )}
-        </Chat>
+        <ChatBox
+          author={this.state.author}
+          postMessage={this.postMessage}
+          leaveChat={this.leaveChat}
+          joinChat={this.joinChat}
+        />
       </Layout>
     );
   }
