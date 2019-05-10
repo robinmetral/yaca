@@ -8,19 +8,35 @@ const Container = styled.div`
 
 const Box = styled.div`
   background: ${({ theme }) => theme.box};
-  max-width: 30rem;
+  max-width: 40rem;
   padding: 0.5rem 1rem;
   margin-left: ${({ own }) => (own ? "auto" : "0")};
+  display: flex;
+  flex-direction: column;
+`;
+
+const Author = styled.span`
+  font-weight: 600;
+`;
+
+const Body = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const Time = styled.small`
+  margin-left: 2rem;
+  align-self: flex-end;
 `;
 
 const Message = ({ message, author }) => (
   <Container>
     <Box own={message.author === author ? true : false}>
-      {message.author}
-      <br />
-      {message.message}
-      <br />
-      {message.timestamp}
+      <Author>{message.author}</Author>
+      <Body>
+        {message.message}
+        <Time>{message.timestamp}</Time>
+      </Body>
     </Box>
   </Container>
 );
