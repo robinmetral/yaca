@@ -5,12 +5,15 @@ import RobotoMedium from "../assets/Roboto-Medium.woff2";
 const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: "Roboto";
+    /* font-display swap to speed up first contentful paint */
+    font-display: swap;
     src: url(${RobotoLight}) format("woff2");
     font-weight: normal;
     font-style: normal;
   }
   @font-face {
     font-family: "Roboto";
+    font-display: swap;
     src: url(${RobotoMedium}) format("woff2");
     font-weight: bold;
     font-style: normal;
