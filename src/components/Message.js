@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
+import { formatTime } from "../helpers";
+
 const Container = styled.div`
   display: flex;
   margin: 1.5rem 0;
@@ -81,7 +83,7 @@ const Message = ({ message, author }) => (
       {message.author !== author && <Author>{message.author}</Author>}
       <Body>
         {message.message}
-        <Time>{message.timestamp}</Time>
+        <Time>{formatTime(message.timestamp)}</Time>
       </Body>
     </Box>
   </Container>
