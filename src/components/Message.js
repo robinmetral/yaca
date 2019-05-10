@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-const StyledMessage = styled.div`
+const Container = styled.div`
   display: flex;
   margin: 1.5rem 0;
 `;
 
-const Div = styled.div`
+const Box = styled.div`
   background: ${({ theme }) => theme.box};
   max-width: 30rem;
   padding: 0.5rem 1rem;
@@ -14,12 +14,15 @@ const Div = styled.div`
 `;
 
 const Message = ({ message, author }) => (
-  <StyledMessage>
-    <Div own={message.author === author ? true : false}>
-      <strong>{message.author}</strong>
+  <Container>
+    <Box own={message.author === author ? true : false}>
+      {message.author}
+      <br />
       {message.message}
-    </Div>
-  </StyledMessage>
+      <br />
+      {message.timestamp}
+    </Box>
+  </Container>
 );
 
 export default Message;
