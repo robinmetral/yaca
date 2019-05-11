@@ -11,6 +11,6 @@ export const Bar = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0 2rem;
-  border: 1px solid ${({ theme }) => theme.medium};
-  border-width: ${({ top }) => (top ? "0 0 1px 0" : "1px 0 0 0")};
+  border-bottom: ${({ theme, top }) =>
+    top ? `1px solid ${theme.medium}` : "none"};
 `;
