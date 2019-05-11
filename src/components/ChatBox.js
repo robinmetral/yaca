@@ -1,20 +1,53 @@
-import React from "react";
+import React, { Component } from "react";
 
-import PostMessage from "./PostMessage";
-import Join from "./Join";
+import Button from "./Button";
 import { Bar } from "./Bar";
+import { ReactComponent as Send } from "../assets/paper-plane.svg";
 
-const ChatBox = ({ author, postMessage, leaveChat, joinChat }) => (
-  <Bar as="section" bottom height="15rem">
-    {author ? (
-      <>
-        <PostMessage author={author} postMessage={postMessage} />
-        <button onClick={leaveChat}>Leave the chat</button>
-      </>
-    ) : (
-      <Join joinChat={joinChat} />
-    )}
-  </Bar>
-);
+class ChatBox extends Component {
+  // initialize form state
+  state = {
+    message: ""
+  };
+
+  handleChange = event => {
+    this.setState({
+      message: event.target.value
+    });
+  };
+
+  handleSubmit = event => {
+    // prevent form from submitting
+    event.preventDefault();
+    // build message object
+    const message = {
+      message: this.state.message,
+      author: this.props.author
+    };
+    // call function to send message
+    this.props.postMessage(message);
+    // reset form
+    this.setState({
+      message: ""
+    });
+  };
+
+  render() {
+    return (
+      <Bar as="section" bottom height="5rem">
+        <form onSubmit={this.handleSubmit}>
+          <input
+            required
+            type="text"
+            value={this.state.message}
+            onChange={this.handleChange}
+            placeholder="Write your message..."
+          />
+          <Button type="submit" icon={Send} />
+        </form>
+      </Bar>
+    );
+  }
+}
 
 export default ChatBox;
