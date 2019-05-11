@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import styled, { ThemeProvider } from "styled-components";
 
-import Header from "./Header";
 import GlobalStyle from "./GlobalStyle";
 import { lightTheme, darkTheme } from "./Themes";
 
@@ -18,7 +17,6 @@ class Layout extends Component {
       <ThemeProvider theme={this.props.dark ? darkTheme : lightTheme}>
         <Container>
           <GlobalStyle />
-          <Header dark={this.props.dark} toggleDark={this.props.toggleDark} />
           {this.props.children}
         </Container>
       </ThemeProvider>
