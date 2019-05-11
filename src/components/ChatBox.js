@@ -1,9 +1,16 @@
 import React, { Component } from "react";
+import styled from "styled-components";
 
 import TextInput from "./TextInput";
 import IconButton from "./IconButton";
 import { Bar } from "./Bar";
 import { ReactComponent as Send } from "../assets/paper-plane.svg";
+
+const Form = styled.form`
+  width: 100%;
+  display: flex;
+  align-items: center;
+`;
 
 class ChatBox extends Component {
   // initialize form state
@@ -36,7 +43,7 @@ class ChatBox extends Component {
   render() {
     return (
       <Bar as="section" bottom height="5rem">
-        <form onSubmit={this.handleSubmit}>
+        <Form onSubmit={this.handleSubmit}>
           <TextInput
             required
             type="text"
@@ -45,7 +52,7 @@ class ChatBox extends Component {
             placeholder="Write your message..."
           />
           <IconButton type="submit" icon={Send} />
-        </form>
+        </Form>
       </Bar>
     );
   }

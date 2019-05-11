@@ -64,7 +64,6 @@ class JoinChat extends Component {
             style={{ display: "flex", flexDirection: "column", width: "100%" }}
           >
             <TextInput
-              style={{ flex: "3" }}
               required
               type="text"
               name="author"

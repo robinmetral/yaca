@@ -8,6 +8,7 @@ const TextInput = styled.input`
   box-sizing: border-box;
   margin: 0;
   /* style */
+  flex: 1;
   border: ${({ theme }) => theme.border};
   border-radius: ${({ theme }) => theme.borderradius};
   background-color: ${({ theme }) => theme.box};
