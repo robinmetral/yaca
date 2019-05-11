@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+import TextInput from "./TextInput";
 import IconButton from "./IconButton";
 import { Bar } from "./Bar";
 import { ReactComponent as Send } from "../assets/paper-plane.svg";
@@ -36,7 +37,7 @@ class ChatBox extends Component {
     return (
       <Bar as="section" bottom height="5rem">
         <form onSubmit={this.handleSubmit}>
-          <input
+          <TextInput
             required
             type="text"
             value={this.state.message}
