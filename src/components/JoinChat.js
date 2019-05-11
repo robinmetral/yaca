@@ -2,27 +2,13 @@ import React, { Component } from "react";
 import styled from "styled-components";
 
 import IconButton from "./IconButton";
+import TextInput from "./TextInput";
 import { ReactComponent as SignIn } from "../assets/sign-in.svg";
 
 const Form = styled.form`
   margin: 40vh 2rem 0 2rem;
   display: flex;
   align-items: center;
-`;
-
-const TextInput = styled.input`
-  /* reset */
-  appearance: none;
-  font-family: inherit;
-  font-size: 100%;
-  box-sizing: border-box;
-  margin: 0;
-  /* style */
-  border: ${({ theme }) => theme.border};
-  border-radius: ${({ theme }) => theme.borderradius};
-  background-color: ${({ theme }) => theme.box};
-  color: ${({ theme }) => theme.text};
-  padding: 1rem 2rem;
 `;
 
 const Checkbox = styled.input`
