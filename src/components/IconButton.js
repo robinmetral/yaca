@@ -5,7 +5,7 @@ const StyledButton = styled.button`
   background: none;
   border: none;
   padding: 0.5rem;
-  margin: ${({ margin }) => (margin ? margin : "0")};
+  margin-left: 1rem;
   &:hover {
     transform: translateY(-1px);
   }

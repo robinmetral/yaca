@@ -51,7 +51,7 @@ class ChatBox extends Component {
             onChange={this.handleChange}
             placeholder="Write your message..."
           />
-          <IconButton type="submit" icon={Send} />
+          <IconButton type="submit" icon={Send} margin="0 0 0 1rem" />
         </Form>
       </Bar>
     );

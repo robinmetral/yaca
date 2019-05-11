@@ -9,18 +9,13 @@ import { ReactComponent as SignOut } from "../assets/sign-out.svg";
 
 const Title = styled.h1`
   font-size: 2.5rem;
-  margin: 0;
+  margin-right: auto;
 `;
 
 const Header = ({ dark, toggleDark, author, leaveChat }) => (
   <Bar as="header" top height="5rem">
     <Title>Doodle Chat</Title>
-    <IconButton
-      icon={dark ? Sun : Moon}
-      onClick={toggleDark}
-      color="accent"
-      margin="0 0 0 auto"
-    />
+    <IconButton icon={dark ? Sun : Moon} onClick={toggleDark} color="accent" />
     {author && <IconButton icon={SignOut} onClick={leaveChat} />}
   </Bar>
 );
