@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 
 import ChatBox from "./ChatBox";
+import JoinChat from "./JoinChat";
 import Layout from "./Layout";
+import Header from "./Header";
 import Message from "./Message";
 
 class App extends Component {
@@ -40,7 +42,9 @@ class App extends Component {
 
   // method to scroll to the bottom of messages
   scrollToBottom = () => {
-    this.messagesEnd.current.scrollIntoView({ behavior: "smooth" });
+    if (this.messagesEnd.current) {
+      this.messagesEnd.current.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   // hit API to fetch messages
@@ -127,29 +131,39 @@ class App extends Component {
 
   render() {
     return (
-      <Layout dark={this.state.dark} toggleDark={this.toggleDark}>
+      <Layout dark={this.state.dark}>
+        <Header
+          dark={this.state.dark}
+          toggleDark={this.toggleDark}
+          author={this.state.author}
+          leaveChat={this.leaveChat}
+        />
         <main>
-          {this.state.messages ? (
+          {this.state.author ? (
             <>
-              {this.state.messages.map((message, key) => (
-                <Message
-                  key={key}
-                  message={message}
-                  author={this.state.author}
-                />
-              ))}
-              <div ref={this.messagesEnd} />
+              {this.state.messages ? (
+                <>
+                  {this.state.messages.map((message, key) => (
+                    <Message
+                      key={key}
+                      message={message}
+                      author={this.state.author}
+                    />
+                  ))}
+                  <div ref={this.messagesEnd} />
+                  <ChatBox
+                    author={this.state.author}
+                    postMessage={this.postMessage}
+                  />
+                </>
+              ) : (
+                <p>Loading messages...</p>
+              )}
             </>
           ) : (
-            <p>Loading...</p>
+            <JoinChat joinChat={this.joinChat} />
           )}
         </main>
-        <ChatBox
-          author={this.state.author}
-          postMessage={this.postMessage}
-          leaveChat={this.leaveChat}
-          joinChat={this.joinChat}
-        />
       </Layout>
     );
   }
