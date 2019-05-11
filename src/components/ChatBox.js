@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import Button from "./Button";
+import IconButton from "./IconButton";
 import { Bar } from "./Bar";
 import { ReactComponent as Send } from "../assets/paper-plane.svg";
 
@@ -43,7 +43,7 @@ class ChatBox extends Component {
             onChange={this.handleChange}
             placeholder="Write your message..."
           />
-          <Button type="submit" icon={Send} />
+          <IconButton type="submit" icon={Send} />
         </form>
       </Bar>
     );
