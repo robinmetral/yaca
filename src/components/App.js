@@ -37,6 +37,7 @@ class App extends Component {
       }`
     );
     const json = await response.json();
+    // save messages to state
     this.setState({
       messages: json
     });
@@ -53,7 +54,7 @@ class App extends Component {
       body: JSON.stringify(message)
     });
     // improvement: deal with error messages from response here
-    // update messages
+    // fetch new messages
     this.fetchMessages();
   };
 
@@ -73,7 +74,7 @@ class App extends Component {
     localStorage.removeItem("author");
   };
 
-  // toggle dark light theme and save to localStorage
+  // toggle dark theme and save to localStorage
   toggleDark = () => {
     localStorage.setItem("dark", !this.state.dark);
     this.setState({ dark: !this.state.dark });

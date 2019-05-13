@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+// style text inputs for JoinChat and ChatBox components
 const TextInput = styled.input`
   /* reset */
   appearance: none;

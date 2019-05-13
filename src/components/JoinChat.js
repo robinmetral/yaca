@@ -30,6 +30,7 @@ class JoinChat extends Component {
     remember: false
   };
 
+  // control form inputs
   handleChange = event => {
     const { name } = event.target;
     const value =
@@ -41,6 +42,7 @@ class JoinChat extends Component {
     });
   };
 
+  // call joinChat method
   handleSubmit = event => {
     event.preventDefault();
     this.props.joinChat(this.state.author, this.state.remember);

@@ -18,6 +18,7 @@ class ChatBox extends Component {
     message: ""
   };
 
+  // control message input
   handleChange = event => {
     this.setState({
       message: event.target.value
