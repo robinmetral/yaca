@@ -1,7 +1,9 @@
 import { createGlobalStyle } from "styled-components";
-import RobotoLight from "../assets/Roboto-Light.woff2";
-import RobotoMedium from "../assets/Roboto-Medium.woff2";
+import RobotoLight from "../../assets/Roboto-Light.woff2";
+import RobotoMedium from "../../assets/Roboto-Medium.woff2";
 
+// app global styles using styled-component's createGlobalStyle API
+// https://www.styled-components.com/docs/api#createglobalstyle
 const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: "Roboto";

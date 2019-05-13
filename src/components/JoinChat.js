@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import styled from "styled-components";
 
 import IconButton from "./IconButton";
-import TextInput from "./TextInput";
+import TextInput from "./styled/TextInput";
+import Checkbox from "./styled/Checkbox";
 import { ReactComponent as SignIn } from "../assets/sign-in.svg";
 
 const Form = styled.form`
@@ -11,27 +12,16 @@ const Form = styled.form`
   align-items: center;
 `;
 
-const Checkbox = styled.input`
-  /* reset */
-  appearance: none;
-  font-family: inherit;
-  font-size: 100%;
-  /* style */
-  width: 2rem;
-  height: 2rem;
-  font-size: 2rem;
-  border: ${({ theme }) => theme.border};
-  border-radius: 2px;
-  background-color: ${({ theme }) => theme.box};
-  color: ${({ theme }) => theme.text};
-  margin: 0 0.5rem;
-  /* style and position checked */
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`;
+
+const Label = styled.label`
   display: flex;
   align-items: center;
-  justify-content: center;
-  &:checked::before {
-    content: "×";
-  }
+  margin-top: 1rem;
 `;
 
 class JoinChat extends Component {
@@ -40,6 +30,7 @@ class JoinChat extends Component {
     remember: false
   };
 
+  // control form inputs
   handleChange = event => {
     const { name } = event.target;
     const value =
@@ -51,6 +42,7 @@ class JoinChat extends Component {
     });
   };
 
+  // call joinChat method
   handleSubmit = event => {
     event.preventDefault();
     this.props.joinChat(this.state.author, this.state.remember);
@@ -60,9 +52,7 @@ class JoinChat extends Component {
     return (
       <>
         <Form onSubmit={this.handleSubmit}>
-          <div
-            style={{ display: "flex", flexDirection: "column", width: "100%" }}
-          >
+          <Container>
             <TextInput
               required
               pattern=".{1,64}"
@@ -73,14 +63,7 @@ class JoinChat extends Component {
               placeholder="Choose a username"
               aria-label="Your username"
             />
-            <label
-              htmlFor="remember"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                marginTop: "1rem"
-              }}
-            >
+            <Label htmlFor="remember">
               <Checkbox
                 type="checkbox"
                 id="remember"
@@ -89,8 +72,8 @@ class JoinChat extends Component {
                 onChange={this.handleChange}
               />
               Remember me
-            </label>
-          </div>
+            </Label>
+          </Container>
           <IconButton type="submit" icon={SignIn} label="Join the chat" />
         </Form>
       </>

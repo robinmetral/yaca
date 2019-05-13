@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
-export const Bar = styled.div`
+// bar styles for Header and ChatBox
+const Bar = styled.div`
   position: sticky;
   height: ${({ height }) => height};
   top: ${({ top }) => (top ? "0" : "")};
@@ -14,3 +15,5 @@ export const Bar = styled.div`
   border-bottom: ${({ theme, top }) =>
     top ? `1px solid ${theme.medium}` : "none"};
 `;
+
+export default Bar;
