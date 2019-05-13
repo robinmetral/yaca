@@ -9,7 +9,7 @@ class App extends Component {
   state = {
     author: undefined,
     messages: [],
-    dark: true
+    dark: false
   };
 
   componentDidMount() {
