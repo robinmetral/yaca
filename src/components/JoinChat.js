@@ -70,7 +70,8 @@ class JoinChat extends Component {
               name="author"
               value={this.state.author}
               onChange={this.handleChange}
-              placeholder="Username"
+              placeholder="Choose a username"
+              aria-label="Your username"
             />
             <label
               htmlFor="remember"
