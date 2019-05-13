@@ -63,3 +63,10 @@ export const formatTime = timestamp => {
     return `${month} ${day}, ${year} at ${time}`;
   }
 };
+
+// method to decode html using the DOMparser API
+// https://developer.mozilla.org/en-US/docs/Web/API/DOMParser
+export const decodeHTML = encoded => {
+  const doc = new DOMParser().parseFromString(encoded, "text/html");
+  return doc.documentElement.textContent;
+};
