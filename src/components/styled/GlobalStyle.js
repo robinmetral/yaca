@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
-import RobotoLight from "../assets/Roboto-Light.woff2";
-import RobotoMedium from "../assets/Roboto-Medium.woff2";
+import RobotoLight from "../../assets/Roboto-Light.woff2";
+import RobotoMedium from "../../assets/Roboto-Medium.woff2";
 
 const GlobalStyle = createGlobalStyle`
   @font-face {

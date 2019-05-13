@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 
 import IconButton from "./IconButton";
-import TextInput from "./TextInput";
+import TextInput from "./styled/TextInput";
 import { ReactComponent as SignIn } from "../assets/sign-in.svg";
 
 const Form = styled.form`

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import styled, { ThemeProvider } from "styled-components";
 
-import GlobalStyle from "./GlobalStyle";
-import { lightTheme, darkTheme } from "./Themes";
+import GlobalStyle from "./styled/GlobalStyle";
+import { lightTheme, darkTheme } from "./styled/Themes";
 
 const Container = styled.div`
   display: flex;

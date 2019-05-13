@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import IconButton from "./IconButton";
-import { Bar } from "./Bar";
+import { Bar } from "./styled/Bar";
 import { ReactComponent as Sun } from "../assets/sun.svg";
 import { ReactComponent as Moon } from "../assets/moon.svg";
 import { ReactComponent as SignOut } from "../assets/sign-out.svg";
