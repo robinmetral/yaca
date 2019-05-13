@@ -49,23 +49,6 @@ class App extends Component {
 
   // hit API to fetch messages
   fetchMessages = async () => {
-    // DEV MESSAGES
-    const messages = [];
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map(i =>
-      messages.push({
-        author: `Author${i}`,
-        message: `A little message by Author${i}`,
-        timestamp: new Date(
-          new Date(2019, 4, 3).getTime() +
-            Math.random() *
-              (new Date().getTime() - new Date(2019, 4, 3).getTime())
-        )
-      })
-    );
-    this.setState({ messages });
-    // END
-
-    /* AWAITING TOKEN
     // fetch messages
     const response = await fetch(
       `https://chatty.kubernetes.doodle-test.com/api/chatty/v1.0/?token=${
@@ -76,35 +59,24 @@ class App extends Component {
     this.setState({
       messages: json
     });
-    */
   };
 
   // hit API to post message
   postMessage = async message => {
     // hit api
-    /* awaiting token
     const response = await fetch(
       `https://chatty.kubernetes.doodle-test.com/api/chatty/v1.0`,
       {
         method: "POST",
         headers: {
+          "Content-Type": "application/json",
           token: process.env.REACT_APP_API_TOKEN
         },
         body: JSON.stringify(message)
       }
     );
     const json = await response.json();
-    console.log(json);
-    */
-    // temporarily manually add timestamp to message
-    message.timestamp = Date.now();
-    // mirror to state
-    // take a copy of state
-    let messages = this.state.messages;
-    // add message
-    messages.push(message);
-    // update state
-    this.setState({ messages });
+    this.fetchMessages();
   };
 
   // join the chat by adding author to state
