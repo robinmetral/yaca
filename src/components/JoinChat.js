@@ -70,7 +70,8 @@ class JoinChat extends Component {
               name="author"
               value={this.state.author}
               onChange={this.handleChange}
-              placeholder="Username"
+              placeholder="Choose a username"
+              aria-label="Your username"
             />
             <label
               htmlFor="remember"
@@ -90,7 +91,7 @@ class JoinChat extends Component {
               Remember me
             </label>
           </div>
-          <IconButton type="submit" icon={SignIn} />
+          <IconButton type="submit" icon={SignIn} label="Join the chat" />
         </Form>
       </>
     );
