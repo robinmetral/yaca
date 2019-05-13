@@ -3,35 +3,13 @@ import styled from "styled-components";
 
 import IconButton from "./IconButton";
 import TextInput from "./styled/TextInput";
+import Checkbox from "./styled/Checkbox";
 import { ReactComponent as SignIn } from "../assets/sign-in.svg";
 
 const Form = styled.form`
   margin: 40vh 2rem 0 2rem;
   display: flex;
   align-items: center;
-`;
-
-const Checkbox = styled.input`
-  /* reset */
-  appearance: none;
-  font-family: inherit;
-  font-size: 100%;
-  /* style */
-  width: 2rem;
-  height: 2rem;
-  font-size: 2rem;
-  border: ${({ theme }) => theme.border};
-  border-radius: 2px;
-  background-color: ${({ theme }) => theme.box};
-  color: ${({ theme }) => theme.text};
-  margin: 0 0.5rem;
-  /* style and position checked */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  &:checked::before {
-    content: "×";
-  }
 `;
 
 class JoinChat extends Component {
