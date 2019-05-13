@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import styled, { ThemeProvider } from "styled-components";
 
 import GlobalStyle from "./styled/GlobalStyle";
@@ -12,23 +12,19 @@ const Container = styled.div`
   margin: 0 auto;
 `;
 
-class Layout extends Component {
-  render() {
-    return (
-      <ThemeProvider theme={this.props.dark ? darkTheme : lightTheme}>
-        <Container>
-          <GlobalStyle />
-          <Header
-            dark={this.props.dark}
-            toggleDark={this.props.toggleDark}
-            author={this.props.author}
-            leaveChat={this.props.leaveChat}
-          />
-          <main>{this.props.children}</main>
-        </Container>
-      </ThemeProvider>
-    );
-  }
-}
+const Layout = ({ dark, toggleDark, author, leaveChat, children }) => (
+  <ThemeProvider theme={dark ? darkTheme : lightTheme}>
+    <Container>
+      <GlobalStyle />
+      <Header
+        dark={dark}
+        toggleDark={toggleDark}
+        author={author}
+        leaveChat={leaveChat}
+      />
+      <main>{children}</main>
+    </Container>
+  </ThemeProvider>
+);
 
 export default Layout;
