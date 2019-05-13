@@ -46,6 +46,7 @@ class ChatBox extends Component {
         <Form onSubmit={this.handleSubmit}>
           <TextInput
             required
+            pattern=".{1,256}"
             type="text"
             value={this.state.message}
             onChange={this.handleChange}

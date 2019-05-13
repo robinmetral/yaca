@@ -65,6 +65,7 @@ class JoinChat extends Component {
           >
             <TextInput
               required
+              pattern=".{1,64}"
               type="text"
               name="author"
               value={this.state.author}
