@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { formatTime } from "../helpers";
+import { formatTime, decodeHTML } from "../helpers";
 
 const Container = styled.div`
   display: flex;
@@ -82,7 +82,7 @@ const Message = ({ message, author }) => (
     <Box right={message.author === author ? true : false}>
       {message.author !== author && <Author>{message.author}</Author>}
       <Body>
-        {message.message}
+        {decodeHTML(message.message)}
         <Time>{formatTime(message.timestamp)}</Time>
       </Body>
     </Box>
