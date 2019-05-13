@@ -12,6 +12,18 @@ const Form = styled.form`
   align-items: center;
 `;
 
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`;
+
+const Label = styled.label`
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+`;
+
 class JoinChat extends Component {
   state = {
     author: "",
@@ -38,9 +50,7 @@ class JoinChat extends Component {
     return (
       <>
         <Form onSubmit={this.handleSubmit}>
-          <div
-            style={{ display: "flex", flexDirection: "column", width: "100%" }}
-          >
+          <Container>
             <TextInput
               required
               pattern=".{1,64}"
@@ -51,14 +61,7 @@ class JoinChat extends Component {
               placeholder="Choose a username"
               aria-label="Your username"
             />
-            <label
-              htmlFor="remember"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                marginTop: "1rem"
-              }}
-            >
+            <Label htmlFor="remember">
               <Checkbox
                 type="checkbox"
                 id="remember"
@@ -67,8 +70,8 @@ class JoinChat extends Component {
                 onChange={this.handleChange}
               />
               Remember me
-            </label>
-          </div>
+            </Label>
+          </Container>
           <IconButton type="submit" icon={SignIn} label="Join the chat" />
         </Form>
       </>
