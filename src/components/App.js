@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
 import Layout from "./Layout";
-import Header from "./Header";
 import MessagesList from "./MessagesList";
 import JoinChat from "./JoinChat";
 
@@ -82,24 +81,21 @@ class App extends Component {
 
   render() {
     return (
-      <Layout dark={this.state.dark}>
-        <Header
-          dark={this.state.dark}
-          toggleDark={this.toggleDark}
-          author={this.state.author}
-          leaveChat={this.leaveChat}
-        />
-        <main>
-          {this.state.author ? (
-            <MessagesList
-              messages={this.state.messages}
-              author={this.state.author}
-              postMessage={this.postMessage}
-            />
-          ) : (
-            <JoinChat joinChat={this.joinChat} />
-          )}
-        </main>
+      <Layout
+        dark={this.state.dark}
+        toggleDark={this.toggleDark}
+        author={this.state.author}
+        leaveChat={this.leaveChat}
+      >
+        {this.state.author ? (
+          <MessagesList
+            messages={this.state.messages}
+            author={this.state.author}
+            postMessage={this.postMessage}
+          />
+        ) : (
+          <JoinChat joinChat={this.joinChat} />
+        )}
       </Layout>
     );
   }

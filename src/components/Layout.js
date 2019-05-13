@@ -3,6 +3,7 @@ import styled, { ThemeProvider } from "styled-components";
 
 import GlobalStyle from "./styled/GlobalStyle";
 import { lightTheme, darkTheme } from "./styled/Themes";
+import Header from "./Header";
 
 const Container = styled.div`
   display: flex;
@@ -17,7 +18,13 @@ class Layout extends Component {
       <ThemeProvider theme={this.props.dark ? darkTheme : lightTheme}>
         <Container>
           <GlobalStyle />
-          {this.props.children}
+          <Header
+            dark={this.props.dark}
+            toggleDark={this.props.toggleDark}
+            author={this.props.author}
+            leaveChat={this.props.leaveChat}
+          />
+          <main>{this.props.children}</main>
         </Container>
       </ThemeProvider>
     );
