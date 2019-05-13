@@ -53,7 +53,11 @@ class ChatBox extends Component {
             placeholder="Write your message..."
             aria-label="Your message"
           />
-          <IconButton type="submit" icon={Send} margin="0 0 0 1rem" />
+          <IconButton
+            type="submit"
+            icon={Send}
+            label="Send"
+          />
         </Form>
       </Bar>
     );

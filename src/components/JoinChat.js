@@ -91,7 +91,7 @@ class JoinChat extends Component {
               Remember me
             </label>
           </div>
-          <IconButton type="submit" icon={SignIn} />
+          <IconButton type="submit" icon={SignIn} label="Join the chat" />
         </Form>
       </>
     );

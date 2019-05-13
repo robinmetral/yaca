@@ -21,8 +21,8 @@ const StyledIcon = styled.div`
   }
 `;
 
-const Button = ({ icon, onClick, color, margin }) => (
-  <StyledButton onClick={onClick} margin={margin}>
+const Button = ({ icon, onClick, color, margin, label }) => (
+  <StyledButton onClick={onClick} margin={margin} aria-label={label}>
     <StyledIcon as={icon} color={color} />
   </StyledButton>
 );
