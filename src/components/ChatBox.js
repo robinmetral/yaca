@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import TextInput from "./styled/TextInput";
 import IconButton from "./IconButton";
-import { Bar } from "./styled/Bar";
+import Bar from "./styled/Bar";
 import { ReactComponent as Send } from "../assets/paper-plane.svg";
 
 const Form = styled.form`
