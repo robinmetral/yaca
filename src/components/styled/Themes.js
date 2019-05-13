@@ -1,19 +1,36 @@
-export const lightTheme = {
+// color palette for light theme
+const lightPalette = {
   bg: "#e6ecf0",
   box: "white",
   text: "#14171a",
-  accent: "#ffac33",
   medium: "#5c6e80",
-  borderradius: "1rem",
-  border: "1px solid #5c6e80"
+  accent: "#ffac33"
 };
 
-export const darkTheme = {
+// color palette for dark theme
+const darkPalette = {
   bg: "#10171e",
   box: "#15202b",
   text: "white",
-  accent: "#ffac33",
   medium: "#38444d",
-  borderradius: "1rem",
-  border: `1px solid #38444d`
+  accent: "#ffac33"
+};
+
+// theme values for both themes
+const bothThemes = {
+  borderradius: "1rem"
+};
+
+// lightTheme export
+export const lightTheme = {
+  ...bothThemes,
+  ...lightPalette,
+  border: `1px solid ${lightPalette.medium}`
+};
+
+// darkTheme export
+export const darkTheme = {
+  ...bothThemes,
+  ...darkPalette,
+  border: `1px solid ${darkPalette.medium}`
 };
