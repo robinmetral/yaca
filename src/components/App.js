@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 
-import ChatBox from "./ChatBox";
-import JoinChat from "./JoinChat";
 import Layout from "./Layout";
 import Header from "./Header";
-import Message from "./Message";
+import MessagesList from "./MessagesList";
+import JoinChat from "./JoinChat";
 
 class App extends Component {
   // initialize state
@@ -13,9 +12,6 @@ class App extends Component {
     messages: [],
     dark: true
   };
-
-  // ref at the bottom of messages to scroll
-  messagesEnd = React.createRef();
 
   componentDidMount() {
     // get returning author from localStorage
@@ -31,21 +27,7 @@ class App extends Component {
     }
     // fetch messages
     this.fetchMessages();
-    // scroll to the bottom
-    this.scrollToBottom();
   }
-
-  componentDidUpdate() {
-    // scroll to the bottom
-    this.scrollToBottom();
-  }
-
-  // method to scroll to the bottom of messages
-  scrollToBottom = () => {
-    if (this.messagesEnd.current) {
-      this.messagesEnd.current.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   // hit API to fetch messages
   fetchMessages = async () => {
@@ -63,19 +45,16 @@ class App extends Component {
 
   // hit API to post message
   postMessage = async message => {
-    // hit api
-    const response = await fetch(
-      `https://chatty.kubernetes.doodle-test.com/api/chatty/v1.0`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          token: process.env.REACT_APP_API_TOKEN
-        },
-        body: JSON.stringify(message)
-      }
-    );
-    const json = await response.json();
+    await fetch(`https://chatty.kubernetes.doodle-test.com/api/chatty/v1.0`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        token: process.env.REACT_APP_API_TOKEN
+      },
+      body: JSON.stringify(message)
+    });
+    // improvement: deal with error messages from response here
+    // update messages
     this.fetchMessages();
   };
 
@@ -112,26 +91,11 @@ class App extends Component {
         />
         <main>
           {this.state.author ? (
-            <>
-              {this.state.messages ? (
-                <>
-                  {this.state.messages.map((message, key) => (
-                    <Message
-                      key={key}
-                      message={message}
-                      author={this.state.author}
-                    />
-                  ))}
-                  <div ref={this.messagesEnd} />
-                  <ChatBox
-                    author={this.state.author}
-                    postMessage={this.postMessage}
-                  />
-                </>
-              ) : (
-                <p>Loading messages...</p>
-              )}
-            </>
+            <MessagesList
+              messages={this.state.messages}
+              author={this.state.author}
+              postMessage={this.postMessage}
+            />
           ) : (
             <JoinChat joinChat={this.joinChat} />
           )}
