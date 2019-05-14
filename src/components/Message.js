@@ -5,16 +5,16 @@ import { formatTime, decodeHTML } from "../helpers";
 
 const Container = styled.div`
   display: flex;
-  margin: 1.5rem 0;
+  margin: 1rem 2rem;
 `;
 
+/* speech bubble css3 code from https://leaverou.github.io/bubbly/ */
 const Box = styled.div`
   background: ${({ theme }) => theme.box};
   max-width: 40rem;
   padding: 1rem 2rem;
   /* place left or right based on author and add space for speech bubbles */
-  margin-left: ${({ right }) => (right ? "auto" : "20px")};
-  margin-right: ${({ right }) => (right ? "20px" : "none")};
+  margin-left: ${({ right }) => (right ? "auto" : "none")};
   border-radius: ${({ theme }) => theme.borderradius};
   border: ${({ theme }) => theme.border};
   display: flex;
