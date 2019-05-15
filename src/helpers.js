@@ -8,30 +8,22 @@ export const formatTime = timestamp => {
   const hours = date.getHours();
   // build time string
   const time = `${hours}:${minutes}`;
-  const daysOfTheWeek = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday"
-  ];
+  const daysOfTheWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   const weekday = daysOfTheWeek[date.getDay()];
   const day = date.getDate();
   const monthsOfTheYear = [
-    "January",
-    "February",
-    "March",
-    "April",
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
     "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December"
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec"
   ];
   const month = monthsOfTheYear[date.getMonth()];
   const year = date.getFullYear();
@@ -50,17 +42,17 @@ export const formatTime = timestamp => {
       new Date(date).setHours(0, 0, 0, 0) - new Date().setHours(0, 0, 0, 0)
     );
     console.log(6 * 24 * 60 * 60 * 1000);
-    return `${weekday} at ${time}`;
+    return `${weekday}, ${time}`;
   }
 
   // if message is from this year return month day and time
   else if (date.getFullYear() === now.getFullYear()) {
-    return `${month} ${day} at ${time}`;
+    return `${month} ${day}, ${time}`;
   }
 
   // if message is from last year or older return year month day and time
   else {
-    return `${month} ${day}, ${year} at ${time}`;
+    return `${month} ${day} ${year}, ${time}`;
   }
 };
 
