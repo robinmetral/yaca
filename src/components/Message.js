@@ -74,6 +74,7 @@ const Time = styled.span`
   margin-left: 2rem;
   align-self: flex-end;
   font-size: 1.2rem;
+  white-space: nowrap;
   color: ${({ theme }) => theme.lighttext};
 `;
 
