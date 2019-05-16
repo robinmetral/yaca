@@ -1,6 +1,8 @@
-Hey Doodle :wave:
+# Doodle Chat
 
-This is my take on the chat app challenge.
+React chat interface with a focus on usability and a11y :speech_balloon:
+
+:arrow_right: [doodlechat.netlify.com](https://doodlechat.netlify.com)
 
 - [:fire: Features](#fire-features)
   - [:crescent_moon: Theme switcher](#crescent_moon-theme-switcher)
