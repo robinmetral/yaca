@@ -19,7 +19,12 @@ React chat interface with a focus on usability and a11y :speech_balloon:
 
 ### :crescent_moon: Theme switcher
 
-light and dark theme switcher using the React context API via styled-components `ThemeContext`. The default light theme is typically more readable, but the dark theme helps preserve user eyes when they chat late at night :slightly-smiling-face:
+Light and dark theme switcher using the React context API, via styled-components [`ThemeProvider`](https://www.styled-components.com/docs/api#themeprovider).
+
+The default light theme is typically more readable, but the dark theme helps preserve user eyes when they chat late at night :slightly-smiling-face:
+
+> _One of the few types of alternative theme that adds real value to users is a low light intensity "night mode" theme. Not only is it easier on the eyes when reading in the dark, but it also reduces the likelihood of migraine and the irritation of other light sensitivity disorders._  
+> Heydon Pickering, [Inclusive Components](https://inclusive-components.design/a-theme-switcher/)
 
 ### :globe_with_meridians: a11y
 
