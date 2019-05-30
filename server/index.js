@@ -16,6 +16,10 @@ const response = [
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.get("/", (req, res) => {
+  res.redirect(`/messages`);
+});
+
 app.get("/messages", (req, res) => {
   res.send(response);
 });
