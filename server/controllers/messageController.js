@@ -1,6 +1,6 @@
-import Message from "../models/message";
+const Message = require("../models/message");
 
-export const message_get = (req, res, next) => {
+module.exports.message_get = (req, res, next) => {
   Message.find({}, "user message timestamp").exec((error, messages) => {
     if (error) {
       res.send({ error });
@@ -11,7 +11,7 @@ export const message_get = (req, res, next) => {
 };
 
 // create message
-export const message_post = (req, res) => {
+module.exports.message_post = (req, res) => {
   console.log("req", req);
   /*
   // build message

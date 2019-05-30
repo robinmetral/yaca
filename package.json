@@ -14,11 +14,12 @@
     "styled-components": "^4.2.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "react": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "nodemon server/index.js --exec babel-node --watch server/**/*.js"
+    "start": "node server/index.js",
+    "watch": "nodemon server/index.js --watch server/**/*.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -36,9 +37,6 @@
     ]
   },
   "devDependencies": {
-    "@babel/core": "^7.4.5",
-    "@babel/node": "^7.4.5",
-    "@babel/preset-env": "^7.4.5",
     "nodemon": "^1.19.1"
   }
 }

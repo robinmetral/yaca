@@ -1,11 +1,12 @@
+const express = require("express");
+const path = require("path");
+const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
+
 // configure dotenv
 require("dotenv").config();
 
-import express from "express";
-import path from "path";
-import bodyParser from "body-parser";
-import mongoose from "mongoose";
-import { message_get, message_post } from "./controllers/messageController";
+const message_controller = require("./controllers/messageController");
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -25,10 +26,10 @@ app.get("/", (req, res) => {
 });
 
 // GET messages
-app.get("/messages", message_get);
+app.get("/messages", message_controller.message_get);
 
 // POST message
-app.post("/messages", message_post);
+app.post("/messages", message_controller.message_post);
 
 // route everything else to the react app
 app.get("*", (req, res) => {
