@@ -24,7 +24,7 @@ const MessageSchema = new Schema(
     timestamp: { type: Number, required: true }
   },
   {
-    capped: { max: 100, size: 102400 }
+    capped: { max: 100, size: 25600 }
   }
 );
 const Message = mongoose.model("Message", MessageSchema);
