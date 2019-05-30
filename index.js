@@ -17,6 +17,7 @@ db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname,"build")));
 
 /* handle routes */
 
