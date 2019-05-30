@@ -4,6 +4,7 @@ require("dotenv").config();
 import express from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
+import { message_get, message_post } from "./controllers/messageController";
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -24,14 +25,16 @@ const response = [
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+/* handle routes */
+// redirect index to messages
 app.get("/", (req, res) => {
   res.redirect(`/messages`);
 });
-
-app.get("/messages", (req, res) => {
-  res.send(response);
-});
-
+// GET messages
+app.get("/messages", message_get);
+// POST message
+app.get("/messages", message_post);
+// set up 404
 app.use((req, res) => {
   res.status(404).send({ error: "No route found" });
 });
