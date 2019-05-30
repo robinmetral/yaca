@@ -19,6 +19,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "start": "node server/index.js",
+    "heroku-postbuild": "yarn && yarn run build",
     "watch": "nodemon server/index.js --watch server/**/*.js"
   },
   "eslintConfig": {
