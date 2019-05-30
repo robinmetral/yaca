@@ -22,18 +22,13 @@ const MessageSchema = new Schema({
   message: { type: String, required: true, max: 280 },
   timestamp: { type: Number, required: true }
 });
-mongoose.model("Message", MessageSchema);
+const Message = mongoose.model("Message", MessageSchema);
 
 // serve build directory as static files
 app.use(express.static(path.join(__dirname, "build")));
 
 // support json-encoded POST requests
 app.use(express.json());
-
-// handle 404
-app.use((req, res) => {
-  res.status(404).send("Not found");
-});
 
 // GET messages on the endpoint
 app.get("/api", (req, res, next) => {
@@ -66,6 +61,11 @@ app.post("/api/post", (req, res) => {
 // route root to the react app
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname + "/build/index.html"));
+});
+
+// handle 404
+app.use((req, res) => {
+  res.status(404).send("Not found");
 });
 
 app.listen(port, () =>
