@@ -31,7 +31,7 @@ class ChatBox extends Component {
     // build message object
     const message = {
       message: this.state.message,
-      author: this.props.author
+      user: this.props.user
     };
     // call function to send message
     this.props.postMessage(message);

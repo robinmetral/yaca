@@ -12,14 +12,14 @@ const Container = styled.div`
   margin: 0 auto;
 `;
 
-const Layout = ({ dark, toggleDark, author, leaveChat, children }) => (
+const Layout = ({ dark, toggleDark, user, leaveChat, children }) => (
   <ThemeProvider theme={dark ? darkTheme : lightTheme}>
     <Container>
       <GlobalStyle />
       <Header
         dark={dark}
         toggleDark={toggleDark}
-        author={author}
+        user={user}
         leaveChat={leaveChat}
       />
       <main>{children}</main>

@@ -7,16 +7,16 @@ import JoinChat from "./JoinChat";
 class App extends Component {
   // initialize state
   state = {
-    author: undefined,
+    user: undefined,
     messages: [],
     dark: false
   };
 
   componentDidMount() {
-    // get returning author from localStorage
-    const author = localStorage.getItem("author");
-    if (author) {
-      this.setState({ author });
+    // get returning user from localStorage
+    const user = localStorage.getItem("user");
+    if (user) {
+      this.setState({ user });
     }
     // get theme from localStorage
     const dark = localStorage.getItem("dark");
@@ -53,20 +53,20 @@ class App extends Component {
     this.fetchMessages();
   };
 
-  // join the chat by adding author to state
-  joinChat = (author, remember) => {
-    this.setState({ author });
+  // join the chat by adding user to state
+  joinChat = (user, remember) => {
+    this.setState({ user });
     // save to localStorage if desired
     if (remember) {
-      localStorage.setItem("author", author);
+      localStorage.setItem("user", user);
     }
   };
 
-  // leave the chat by removing author from state
+  // leave the chat by removing user from state
   leaveChat = () => {
-    this.setState({ author: undefined });
+    this.setState({ user: undefined });
     // clear localStorage
-    localStorage.removeItem("author");
+    localStorage.removeItem("user");
   };
 
   // toggle dark theme and save to localStorage
@@ -80,13 +80,13 @@ class App extends Component {
       <Layout
         dark={this.state.dark}
         toggleDark={this.toggleDark}
-        author={this.state.author}
+        user={this.state.user}
         leaveChat={this.leaveChat}
       >
-        {this.state.author ? (
+        {this.state.user ? (
           <MessagesList
             messages={this.state.messages}
-            author={this.state.author}
+            user={this.state.user}
             postMessage={this.postMessage}
           />
         ) : (

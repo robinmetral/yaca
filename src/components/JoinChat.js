@@ -26,7 +26,7 @@ const Label = styled.label`
 
 class JoinChat extends Component {
   state = {
-    author: "",
+    user: "",
     remember: false
   };
 
@@ -45,7 +45,7 @@ class JoinChat extends Component {
   // call joinChat method
   handleSubmit = event => {
     event.preventDefault();
-    this.props.joinChat(this.state.author, this.state.remember);
+    this.props.joinChat(this.state.user, this.state.remember);
   };
 
   render() {
@@ -57,8 +57,8 @@ class JoinChat extends Component {
               required
               pattern=".{1,64}"
               type="text"
-              name="author"
-              value={this.state.author}
+              name="user"
+              value={this.state.user}
               onChange={this.handleChange}
               placeholder="Choose a username"
               aria-label="Your username"

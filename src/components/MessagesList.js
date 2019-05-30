@@ -30,11 +30,11 @@ class MessagesList extends Component {
         {this.props.messages ? (
           <>
             {this.props.messages.map((message, key) => (
-              <Message key={key} message={message} author={this.props.author} />
+              <Message key={key} message={message} user={this.props.user} />
             ))}
             <div ref={this.messagesEnd} />
             <ChatBox
-              author={this.props.author}
+              user={this.props.user}
               postMessage={this.props.postMessage}
             />
           </>

@@ -13,7 +13,7 @@ const Box = styled.div`
   background: ${({ theme }) => theme.box};
   max-width: 40rem;
   padding: 1rem 2rem;
-  /* place left or right based on author and add space for speech bubbles */
+  /* place left or right based on user and add space for speech bubbles */
   margin-left: ${({ right }) => (right ? "auto" : "none")};
   border-radius: ${({ theme }) => theme.borderradius};
   border: ${({ theme }) => theme.border};
@@ -59,7 +59,7 @@ const Box = styled.div`
   }
 `;
 
-const Author = styled.span`
+const User = styled.span`
   font-size: 1.2rem;
   font-weight: bold;
   color: ${({ theme }) => theme.accent};
@@ -78,10 +78,10 @@ const Time = styled.span`
   color: ${({ theme }) => theme.lighttext};
 `;
 
-const Message = ({ message, author }) => (
+const Message = ({ message, user }) => (
   <Container>
-    <Box right={message.author === author ? true : false}>
-      {message.author !== author && <Author>{message.author}</Author>}
+    <Box right={message.user === user ? true : false}>
+      {message.user !== user && <User>{message.user}</User>}
       <Body>
         {decodeHTML(message.message)}
         <Time>{formatTime(message.timestamp)}</Time>

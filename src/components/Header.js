@@ -12,7 +12,7 @@ const Title = styled.h1`
   margin-right: auto;
 `;
 
-const Header = ({ dark, toggleDark, author, leaveChat }) => (
+const Header = ({ dark, toggleDark, user, leaveChat }) => (
   <Bar as="header" top height="5rem">
     <Title>Doodle Chat</Title>
     <IconButton
@@ -21,7 +21,7 @@ const Header = ({ dark, toggleDark, author, leaveChat }) => (
       color="accent"
       label="Switch theme"
     />
-    {author && (
+    {user && (
       <IconButton icon={SignOut} onClick={leaveChat} label="Leave the chat" />
     )}
   </Bar>
