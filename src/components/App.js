@@ -31,7 +31,7 @@ class App extends Component {
   // hit API to fetch messages
   fetchMessages = async () => {
     // fetch messages from proxy
-    const response = await fetch(`/messages`);
+    const response = await fetch(`/api`);
     const json = await response.json();
     // save messages to state
     this.setState({
@@ -41,12 +41,12 @@ class App extends Component {
 
   // hit API to post message
   postMessage = async message => {
-    await fetch(`/messages`, {
+    await fetch(`/api/post`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(message)
+      body: JSON(message)
     });
     // improvement: deal with error messages from response here
     // fetch new messages
