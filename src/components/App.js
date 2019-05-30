@@ -46,7 +46,7 @@ class App extends Component {
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON(message)
+      body: message
     });
     // improvement: deal with error messages from response here
     // fetch new messages
