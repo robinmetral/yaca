@@ -16,7 +16,7 @@ const response = [
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get("/", (req, res) => {
+app.get("/messages", (req, res) => {
   res.send(response);
 });
 

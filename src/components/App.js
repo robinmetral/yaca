@@ -30,12 +30,8 @@ class App extends Component {
 
   // hit API to fetch messages
   fetchMessages = async () => {
-    // fetch messages
-    const response = await fetch(
-      `https://chatty.kubernetes.doodle-test.com/api/chatty/v1.0/?token=${
-        process.env.REACT_APP_API_TOKEN
-      }`
-    );
+    // fetch messages from proxy
+    const response = await fetch(`/messages`);
     const json = await response.json();
     // save messages to state
     this.setState({
