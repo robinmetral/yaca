@@ -37,23 +37,26 @@ app.get("/api", (req, res, next) => {
       res.send({ error });
     } else {
       // return messages as json
-      res.json(messages);
+      res.send(messages);
     }
   });
 });
 
 // POST message
 app.post("/api/post", (req, res) => {
-  // destructure request
-  const { body } = req;
+  // extract message
+  const data = req.body;
+  // add timestamp
+  data.timestamp = Date.now();
   // build message
-  const message = new Message(body);
-
+  const message = new Message(data);
   // populate message
   message.save(error => {
-    if (error) console.log(error);
-    else {
-      console.log(`Message populated: ${message}`);
+    if (error) {
+      res.send({ error });
+    } else {
+      // return message
+      res.send({ message });
     }
   });
 });

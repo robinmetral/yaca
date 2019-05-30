@@ -41,14 +41,15 @@ class App extends Component {
 
   // hit API to post message
   postMessage = async message => {
-    await fetch(`/api/post`, {
+    const request = await fetch(`/api/post`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: message
+      body: JSON.stringify(message)
     });
-    // improvement: deal with error messages from response here
+    const response = await request.json();
+    console.log(response);
     // fetch new messages
     this.fetchMessages();
   };
