@@ -28,8 +28,8 @@ app.get("/messages", message_controller.message_get);
 app.post("/messages", message_controller.message_post);
 */
 
-// route everything else to the react app
-app.get("*", (req, res) => {
+// route root to the react app
+app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname + "/build/index.html"));
 });
 
