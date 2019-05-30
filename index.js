@@ -27,13 +27,16 @@ mongoose.model("Message", MessageSchema);
 // serve build directory as static files
 app.use(express.static(path.join(__dirname, "build")));
 
+// support json-encoded POST requests
+app.use(express.json());
+
 // handle 404
 app.use((req, res) => {
   res.status(404).send("Not found");
 });
 
 // GET messages on the endpoint
-app.get("/messages", (req, res, next) => {
+app.get("/api", (req, res, next) => {
   Message.find({}, "user message timestamp").exec((error, messages) => {
     if (error) {
       res.send({ error });
@@ -45,26 +48,19 @@ app.get("/messages", (req, res, next) => {
 });
 
 // POST message
-app.post("/messages", (req, res) => {
-  console.log("req", req);
-  /*
+app.post("/api/post", (req, res) => {
+  // destructure request
+  const { body } = req;
   // build message
-  const message = new Message({
-    user: "robin",
-    message: "Hello MongoDB!",
-    timestamp: 1559198920378
-  });
+  const message = new Message(body);
 
   // populate message
   message.save(error => {
     if (error) console.log(error);
     else {
       console.log(`Message populated: ${message}`);
-      // closing db connection
-      mongoose.connection.close();
     }
   });
-  */
 });
 
 // route root to the react app
