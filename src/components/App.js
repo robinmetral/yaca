@@ -41,11 +41,10 @@ class App extends Component {
 
   // hit API to post message
   postMessage = async message => {
-    await fetch(`https://chatty.kubernetes.doodle-test.com/api/chatty/v1.0`, {
+    await fetch(`/messages`, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
-        token: process.env.REACT_APP_API_TOKEN
+        "Content-Type": "application/json"
       },
       body: JSON.stringify(message)
     });
