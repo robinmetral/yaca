@@ -13,7 +13,8 @@
     "styled-components": "^4.2.0"
   },
   "scripts": {
-    "react": "react-scripts start",
+    "dev": "react-scripts start",
+    "dev:server": "nodemon index.js",
     "build": "react-scripts build",
     "start": "node index.js",
     "heroku-postbuild": "yarn && yarn run build"
