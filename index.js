@@ -17,11 +17,16 @@ db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 // create message model
 const Schema = mongoose.Schema;
-const MessageSchema = new Schema({
-  user: { type: String, required: true, max: 25 },
-  message: { type: String, required: true, max: 280 },
-  timestamp: { type: Number, required: true }
-});
+const MessageSchema = new Schema(
+  {
+    user: { type: String, required: true, max: 25 },
+    message: { type: String, required: true, max: 280 },
+    timestamp: { type: Number, required: true }
+  },
+  {
+    capped: { max: 100, size: 102400 }
+  }
+);
 const Message = mongoose.model("Message", MessageSchema);
 
 // serve build directory as static files
