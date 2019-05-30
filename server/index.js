@@ -20,16 +20,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 /* handle routes */
 
-// redirect index to messages
-app.get("/", (req, res) => {
-  res.redirect(`/messages`);
-});
-
 // GET messages
 app.get("/messages", message_controller.message_get);
 
+/*
 // POST message
 app.post("/messages", message_controller.message_post);
+*/
 
 // route everything else to the react app
 app.get("*", (req, res) => {
