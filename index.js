@@ -1,12 +1,15 @@
-// configure dotenv
-require("dotenv").config();
-
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
 
+// configure express
 const app = express();
 const port = process.env.PORT || 5000;
+
+// configure dotenv for local environment
+// managed by heroku in production
+require("dotenv").config();
+
 // set up mongoose connection
 mongoose.connect(process.env.MONGODB_ENDPOINT, { useNewUrlParser: true });
 const db = mongoose.connection;
@@ -21,16 +24,15 @@ const MessageSchema = new Schema({
 });
 mongoose.model("Message", MessageSchema);
 
+// serve build directory as static files
 app.use(express.static(path.join(__dirname, "build")));
 
-/* handle routes */
-
-// 404
+// handle 404
 app.use((req, res) => {
   res.status(404).send("Not found");
 });
 
-// GET messages
+// GET messages on the endpoint
 app.get("/messages", (req, res, next) => {
   Message.find({}, "user message timestamp").exec((error, messages) => {
     if (error) {
