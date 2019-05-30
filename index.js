@@ -17,9 +17,14 @@ db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname,"build")));
+app.use(express.static(path.join(__dirname, "build")));
 
 /* handle routes */
+
+// 404
+app.use((req, res) => {
+  res.status(404).send("Not found");
+});
 
 // GET messages
 app.get("/messages", message_controller.message_get);
