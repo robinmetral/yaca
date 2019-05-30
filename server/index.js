@@ -12,7 +12,7 @@ const response = {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get("/sales", (req, res) => {
+app.get("/", (req, res) => {
   res.send(response);
 });
 
