@@ -14,7 +14,7 @@ const Title = styled.h1`
 
 const Header = ({ dark, toggleDark, user, leaveChat }) => (
   <Bar as="header" top height="5rem">
-    <Title>Doodle Chat</Title>
+    <Title>yaca</Title>
     <IconButton
       icon={dark ? Sun : Moon}
       onClick={toggleDark}

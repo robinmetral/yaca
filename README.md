@@ -1,8 +1,8 @@
-# Doodle Chat
+# yaca · yet another chat app
 
 React chat interface with a focus on usability and a11y :speech_balloon:
 
-:arrow_right: [doodlechat.netlify.com](https://doodlechat.netlify.com)
+:arrow_right: [yet-another-chat-app.herokuapp.com](https://yet-another-chat-app.herokuapp.com)
 
 - [:fire: Features](#fire-features)
   - [:crescent_moon: Theme switcher](#crescent_moon-theme-switcher)
@@ -10,6 +10,7 @@ React chat interface with a focus on usability and a11y :speech_balloon:
   - [:nail_care: SVG icons](#nail_care-svg-icons)
   - [:trophy: Lighthouse scores](#trophy-lighthouse-scores)
 - [:construction: Development](#construction-development)
+  - [:briefcase: Dependencies](#briefcase-dependencies)
   - [:truck: Deployment](#truck-deployment)
 
 ---
@@ -20,7 +21,7 @@ React chat interface with a focus on usability and a11y :speech_balloon:
 
 Light and dark theme switcher using the React context API, via styled-components [`ThemeProvider`](https://www.styled-components.com/docs/api#themeprovider).
 
-The default light theme is typically more readable, but the dark theme helps preserve user eyes when they chat late at night  :stuck_out_tongue:
+The default light theme is typically more readable, but the dark theme helps preserve user eyes when they chat late at night :stuck_out_tongue:
 
 > _One of the few types of alternative theme that adds real value to users is a low light intensity "night mode" theme. Not only is it easier on the eyes when reading in the dark, but it also reduces the likelihood of migraine and the irritation of other light sensitivity disorders._  
 > Heydon Pickering, [Inclusive Components](https://inclusive-components.design/a-theme-switcher/)
@@ -47,24 +48,22 @@ The favicon is Twitter's [Twemoji](https://github.com/twitter/twemoji) for Unico
 
 ### :trophy: Lighthouse scores
 
-![Lighthouse scores](https://github.com/robinmetral/doodle-chat/blob/master/lighthouse-2019-05-13.png)
+![Lighthouse scores](https://github.com/robinmetral/yaca/blob/master/lighthouse-2019-05-31.png)
 
-(updated May 13, 2019)
+(updated May 31, 2019)
 
 ---
 
 ## :construction: Development
 
-This app was built on top of Create React App to scaffold it out quickly.
+This app was built on top of Create React App.
 
 ### :briefcase: Dependencies
 
-I've avoided extra dependencies for better performance and maintainability (and because you want to see my code, not someone else's). Only `styled-components` was used on top of CRA!
+I've avoided extra dependencies for better performance and maintainability. For the client-side app, only `styled-components` was used on top of CRA! Server-side, Express and Mongoose were used to interact with the MongoDB database.
 
 For example, I've used a custom-made time formatting function (see [helpers.js](/src/helpers.js)) instead of working with a library like Moment.js.
 
 ### :truck: Deployment
 
-Built on push to master and deployed to Netlify's CDN.
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/ca859bbb-9991-419c-a2b5-2cb1ad0376ed/deploy-status)](https://app.netlify.com/sites/doodlechat/deploys)
+Deployed to Heroku at [yet-another-chat-app.herokuapp.com](https://yet-another-chat-app.herokuapp.com).
