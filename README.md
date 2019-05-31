@@ -60,9 +60,11 @@ This app was built on top of Create React App.
 
 ### :briefcase: Dependencies
 
-I've avoided extra dependencies for better performance and maintainability. For the client-side app, only `styled-components` was used on top of CRA! Server-side, Express and Mongoose were used to interact with the MongoDB database.
+I've avoided extra dependencies for better performance and maintainability. For the client-side app, only `styled-components` was used on top of CRA!
 
 For example, I've used a custom-made time formatting function (see [helpers.js](/src/helpers.js)) instead of working with a library like Moment.js.
+
+Server-side, Express and Mongoose were used to interact with the MongoDB database. Dotenv deals with environment variables locally. They're passed directly to Heroku in production.
 
 ### :truck: Deployment
 
